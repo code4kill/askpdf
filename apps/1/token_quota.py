@@ -7,14 +7,25 @@ required for processing text and to manage API token quotas.
 """
 __author__ = 'mangalbhaskar'
 
+import tiktoken
 
-## Estimate the number of tokens in the given text
+
+# ## Estimate the number of tokens in the given text
+# def estimate_tokens(text: str) -> int:
+#   """
+#   Estimates the number of tokens required for the given text.
+#   Assumes 1 token per approximately 4 characters.
+#   """
+#   return len(text) // 4
+
 def estimate_tokens(text: str) -> int:
-  """
-  Estimates the number of tokens required for the given text.
-  Assumes 1 token per approximately 4 characters.
-  """
-  return len(text) // 4
+    """
+    Estimates the number of tokens required for the given text using OpenAI's tokenizer.
+     cl100k_base is a common tokenizer for GPT-3.5-turbo
+    """
+    tokenizer = tiktoken.get_encoding("cl100k_base")
+    tokens = tokenizer.encode(text)
+    return len(tokens)
 
 ## Calculate the remaining quota
 def calculate_remaining_quota(used_tokens: int, total_quota: int) -> int:
