@@ -4,6 +4,8 @@
 /*
 
 ## allow some files
+!.github
+!Gemfile
 !.dockerignore
 !.gitattributes
 !.nojekyll
