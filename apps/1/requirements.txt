@@ -4,3 +4,4 @@
 PyPDF2
 gTTS
 pydub
+tiktoken

@@ -2,6 +2,7 @@ import os
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from token_quota import estimate_tokens
 
 ## pdf
 from PyPDF2 import PdfReader
@@ -44,7 +45,8 @@ async def upload_pdf(file: UploadFile = File(...)):
         pdf_text += page.extract_text()
 
     # Estimate tokens (assuming 1 token per ~4 characters)
-    num_tokens = len(pdf_text) // 4
+    # num_tokens = len(pdf_text) // 4
+    num_tokens = estimate_tokens(pdf_text)
 
     # Set a limit for the number of tokens to use with GPT
     max_tokens = 3000
@@ -53,7 +55,7 @@ async def upload_pdf(file: UploadFile = File(...)):
 
     return {"text": pdf_text[:500], "token_estimate": num_tokens}  # Return the first 500 characters as a preview
 
-
+# deprecated by openai
 @app.post("/summarize/")
 async def summarize_pdf(file: UploadFile = File(...)):
     if file.content_type != "application/pdf":
@@ -117,3 +119,4 @@ async def summarize_and_convert_pdf(file: UploadFile = File(...)):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
