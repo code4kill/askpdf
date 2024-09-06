@@ -1,9 +1,12 @@
+__author__= "nirajkumar"
+
 import argparse
 from utils import generate_embeddings, split_into_chunk, read_text_from_pdf
 from token_quota import estimate_tokens, calculate_remaining_quota, update_used_tokens, calculate_cost
 import tqdm
 import json
 from datetime import datetime
+from config import config
 
 
 
@@ -22,8 +25,9 @@ def save_embeddings(embeddings, chunks, fileId):
   """
   Save the embeddings to a json file
   """
+  file_path = config["storage"]["file_path"]
   data = None
-  with open('embeddings.json', 'r') as file:
+  with open(file_path, 'r') as file:
     data = json.load(file)
   data["files"][fileId] = {
     "chunks": chunks,
@@ -35,7 +39,8 @@ def main(text):
   response = generating_embeddings(text)
   fileId = datetime.now().strftime("%Y%m%d_%H%M%S")
   updated_json = save_embeddings(response["embeddings"], response["chunks"], fileId)
-  json.dump(updated_json, open('embeddings.json', 'w'))
+  file_path = config["storage"]["file_path"]
+  json.dump(updated_json, open(file_paths, 'w'))
   return fileId
 
 def get_args():
