@@ -34,3 +34,12 @@ tags: how-to, instructions, usage,  guide, help, manual, reference, documentatio
 
 * The script will return the answer to your query.
 
+### Questions && Thoughts
+
+1. How to summarize the whole pdf in one go ?
+2. Mechanism to give store questions and answers of earlier chat and use it for future chat (maintaining chat history).
+3. Chunk creations should be overlapping to better understand the context.
+4. How to handle the case when the answer is not present in the document.
+5. How to handle the case when the answer is present in the document but the model is not able to find it.
+6. How to handle the case when the answer is present in the document but the model is not able to understand it.
+

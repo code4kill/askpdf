@@ -40,7 +40,7 @@ def main(text):
   fileId = datetime.now().strftime("%Y%m%d_%H%M%S")
   updated_json = save_embeddings(response["embeddings"], response["chunks"], fileId)
   file_path = config["storage"]["file_path"]
-  json.dump(updated_json, open(file_paths, 'w'))
+  json.dump(updated_json, open(file_path, 'w'))
   return fileId
 
 def get_args():
