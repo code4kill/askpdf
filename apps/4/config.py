@@ -3,7 +3,7 @@ __author__ = 'nirajkumar'
 config = {
     # Retrieval Settings
     "retrieval": {
-        "model": "bert-base-uncased",  # Pre-trained model for embeddings
+        "model": "gpt-4o",  # Pre-trained model for embeddings
         "embedding_dimension": 768,  # Embedding vector size
         "retrieval_method": "dense",  # Method: dense (using embeddings) or sparse (keyword-based)
         "index_type": "faiss",  # Type of index (e.g., FAISS for dense retrieval)
@@ -18,7 +18,7 @@ config = {
     
     # Generation Settings
     "generation": {
-        "model": "gpt-4",  # Pre-trained model for generation (can also be a smaller model like GPT-3)
+        "model": "gpt-4o",  # Pre-trained model for generation (can also be a smaller model like GPT-3)
         "max_length": 300,  # Maximum number of tokens to generate
         "temperature": 0.7,  # Controls randomness in the generation (higher = more random)
         "top_p": 0.9,  # Controls nucleus sampling (probability mass of tokens considered)

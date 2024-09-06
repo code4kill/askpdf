@@ -1,7 +1,6 @@
 
 __author__ = 'nirajkumar'
 
-
 import argparse
 from utils import generate_embeddings, split_into_chunk, find_cosine_similarity, chat_completion
 import tqdm
@@ -12,8 +11,6 @@ from config import config
 
 
 def get_relevant_chunk(query, document_id, n=0.8):
-  print("qqqq: ",query)
-  print("doc",document_id)
   data = None
   query_embedding = generate_embeddings(query)
   file_path = config["storage"]["file_path"]
@@ -40,6 +37,7 @@ def get_args():
 if __name__ == "__main__":
   args  = get_args()
   query = args.query
+  print(f"\033[91m Your question regarding to document id \033[0m {args.doc_id} is : \n \033[94m {query} \033[0m \n")
   chunk_result = get_relevant_chunk(query, args.doc_id, 0.5)
   answer = retrieve_answer(query, chunk_result)
-  print(answer)
+  print(f"Your answer is : \n \033[92m {answer} \033[0m \n")

@@ -16,7 +16,7 @@ def generating_embeddings(text):
   """
   embeddings = []
   chunks = split_into_chunk(text, chunk_size=500)
-  for chunk in tqdm.tqdm(chunks, desc="proccessing chunks ...") :
+  for chunk in tqdm.tqdm(chunks, desc=f"\033[91m Processing chunks ... \033[0m") :
     embedding = generate_embeddings(chunk)
     embeddings.append(embedding)
   return {"chunks": chunks, "embeddings": embeddings}
@@ -58,11 +58,11 @@ if __name__ == "__main__":
   args  = get_args()
   text_string = read_text_from_pdf(args.pdf_path)
   estimated = estimate_tokens(text_string)
-  print("Estimated tokens: ", estimated)
-  print("Remaining tokens: ", calculate_remaining_quota(estimated, 1000000))
-  print("Make sure you have enough tokens to process the pdf file !!!")
+  print("Estimated tokens: ", f"\033[94m {estimated} \033[0m")
+  print("Remaining tokens: ", f"\033[94m {calculate_remaining_quota(estimated, 1000000)} \033[0m")
+  print(f" \033[91m Make sure you have enough tokens to process the pdf file !!! \033[0m")
   storeId = main(text_string)
   print("Embeddings generated and saved to embeddings.json file !!!")
-  print("For getting relevant chunks, use the fileId: ", storeId)
+  print("For getting relevant chunks, use the fileId: ", f"\033[93m {storeId} \033[0m")
   
   
