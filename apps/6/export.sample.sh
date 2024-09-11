@@ -1,0 +1,2 @@
+export OPENAI_API_KEY="SET_YOU_OPENAI_API_KEY"
+export FILE_UPLOAD_PATH="<your_path>"
