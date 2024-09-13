@@ -28,7 +28,7 @@ jobs:
         run: bundle install
 
       - name: Build the site with Jekyll
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --source ./docs --destination ./_site  # Use 'docs' as source and '_site' as destination
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
