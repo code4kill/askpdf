@@ -1,0 +1,7 @@
+PyPDF2
+fastapi
+uvicorn
+openai
+gtts
+pydub
+tiktoken
