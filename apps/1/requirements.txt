@@ -1,7 +1,0 @@
-#fastapi
-#uvicorn
-#openai
-PyPDF2
-gTTS
-pydub
-tiktoken
