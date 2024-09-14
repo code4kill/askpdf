@@ -4,31 +4,6 @@ import json
 from src.core.pdfutils import read_pdf_from_file
 from src.core.common import write_to_file
 
-# def upload_file(file):
-#     print(file)
-#     id = datetime.now().strftime("%Y%m%d_%H%M%S")
-#     response = {
-#         "name": file.filename,
-#         "id": "file-" + id,
-#         "size": file.content_length,
-#         "type": file.content_type,
-#         "status_code": 200,
-#         "message": f"File uploaded successfully, You can use this {id} id to chat with this document or create embeddings",
-#     }
-
-#     target_path = os.getenv("FILE_UPLOAD_PATH", "/tmp")
-#     file_location = os.path.join(target_path, response['id'])
-#     dir_name = file_location
-#     original_file_path = os.path.join(dir_name, file.filename)
-#     extracted_text_file_path = os.path.join(dir_name, "extracted_text.txt")
-#     meta_data_file_path = os.path.join(dir_name, "meta_data.json")
-#     os.makedirs(dir_name, exist_ok=True)
-#     file.save(original_file_path)
-#     text = read_pdf_from_file(file)
-#     write_to_file(extracted_text_file_path, text)
-#     write_to_file(meta_data_file_path, json.dumps(response))
-#     return json.dumps(response)
-
 def upload_file(file):
     print(file)
     id = datetime.now().strftime("%Y%m%d_%H%M%S")

@@ -5,6 +5,7 @@ __version__ = '0.0.1'
 from flask import Flask
 from flask_restx import Api
 from src.routes.fileupload import upload_bp, file_ns, embedding_ns, metadata_ns
+from src.routes.question import question_ns
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ app.register_blueprint(upload_bp, url_prefix='/api')
 api.add_namespace(file_ns)
 api.add_namespace(embedding_ns)
 api.add_namespace(metadata_ns)
+api.add_namespace(question_ns)
 
 
 

@@ -1,14 +1,8 @@
 ---
-author: nirajkumar
+author: pallawi
 title: How to use instructions
 layout: page
 ---
-
-/upload
-/generate embadings
-/metadata
-/ask
-/history
 
 ## GenAI AskPDF
 
@@ -43,10 +37,10 @@ pip install -r requirements/install.txt
 ### Run the server
 
 ```bash
-uvicorn app:app --reload --port 8000
+python app.py
 ```
 
 ### API
 
-- **URL**: `http://localhost:8000/docs`
+- **URL**: `http://localhost:5000`
 
