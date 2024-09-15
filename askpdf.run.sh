@@ -1,0 +1,1 @@
+docker run -d -t -e OPENAI_API_KEY=<OPENAI_API_KEY> -e FILE_UPLOAD_PATH=/app askpdf:dev

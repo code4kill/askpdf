@@ -2,6 +2,12 @@
 
 `askPDF` is an AI-powered tool that helps you easily interact with PDF documents. Whether you need to extract specific information, summarize content, or ask questions related to the PDF, this tool allows you to have a seamless conversation with the document.
 
+## User Guide
+
+[conda-setup](python.conda.md)
+[Notes](070924.md)
+[Render Docs](render_deployment.md)
+
 ## Key Features
 
 - **Query the Document**: Ask questions directly related to the PDF content and receive quick responses.
