@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to deploy on render | askpdf</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="How to deploy on render" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="askpdf" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to deploy on render" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"How to deploy on render","url":"/render_deployment.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=3df1bf7aebfb0af1de27d52f248081a217e315b0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="/">askpdf</a></h1>
+      
+
+      <h1 id="deploying-python-api-on-render-using-docker">Deploying python API on render using docker</h1>
+
+<p>Render provide a platform to productionize your application Build, deploy, and scale your apps with unparalleled ease.
+<a href="https://render.com/">render.com</a></p>
+
+<ul>
+  <li>Create your free account <a href="https://render.com/">render.com</a>.</li>
+</ul>
+
+<h2 id="creating-docker-file-to-build-image-for-python-app">Creating docker file to build image for python app</h2>
+
+<ul>
+  <li>Create <code class="language-plaintext highlighter-rouge">Dockerfile</code></li>
+  <li>Add the following code</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Use an official Python runtime as a parent image</span>
+FROM python:3.10-slim
+
+<span class="c"># Set the working directory in the container</span>
+WORKDIR /app
+
+<span class="c"># Copy the requirements file to the container</span>
+
+
+<span class="c"># Copy the current directory contents into the container at /app</span>
+COPY ./apps/6 <span class="nb">.</span>
+
+<span class="c"># Install any necessary dependencies</span>
+RUN pip <span class="nb">install</span> <span class="nt">--no-cache-dir</span> <span class="nt">-r</span> requirements/install.txt
+
+<span class="c"># Expose port 8000 for FastAPI</span>
+EXPOSE 8000
+
+<span class="c"># Command to run the FastAPI server using uvicorn</span>
+CMD <span class="o">[</span><span class="s2">"uvicorn"</span>, <span class="s2">"app:app"</span>, <span class="s2">"--host"</span>, <span class="s2">"0.0.0.0"</span>, <span class="s2">"--port"</span>, <span class="s2">"8000"</span><span class="o">]</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>Build docker image</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> askpdf:dev <span class="nb">.</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Run the image</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> <span class="nt">-t</span> <span class="nt">-e</span> <span class="nv">OPENAI_API_KEY</span><span class="o">=</span>&lt;API-KEY&gt; <span class="nt">-e</span> <span class="nv">FILE_UPLOAD_PATH</span><span class="o">=</span>&lt;PATH_TO_FOLDER&gt; askpdf:dev
+</code></pre></div></div>
+
+<p>The above command will run application at PORT 8000.</p>
+
+<p><code class="language-plaintext highlighter-rouge">http://containerIP:8000/docs</code>.</p>
+
+<h2 id="push-the-image-to-dockerhub">Push the image to dockerhub</h2>
+
+<p>Create an account on <a href="https://hub.docker.com/">dockerhub</a></p>
+
+<ul>
+  <li>
+    <p>Create a repository on dockerhub for example <code class="language-plaintext highlighter-rouge">askpdf</code>.</p>
+  </li>
+  <li>
+    <p>Login to dockerhub in terminal</p>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker login
+</code></pre></div></div>
+<p>authenticate your docker with dockerhub credentials.</p>
+
+<ul>
+  <li>Tag the created image</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># docker tag &lt;local-image&gt; &lt;username&gt;/&lt;repository&gt;:&lt;tag&gt;</span>
+docker tag askpdf:dev nirajsah17/askpdf:dev
+</code></pre></div></div>
+<ul>
+  <li>Push image to docker hub</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># docker push &lt;username&gt;/&lt;repository&gt;:&lt;tag&gt;</span>
+docker push nirajsah17/askpdf:dev
+</code></pre></div></div>
+<p>Now our app image is push to the <strong>dockerhub</strong>.</p>
+
+<p>We will use this image to deploy our app.</p>
+
+<h2 id="deploy-on-the-render">Deploy on the Render</h2>
+
+<ul>
+  <li>
+    <p>Login to Render</p>
+  </li>
+  <li>Click on <code class="language-plaintext highlighter-rouge">+ new</code> in right side of nav bar.</li>
+  <li>Then Choose <code class="language-plaintext highlighter-rouge">web services</code> from dropdown.</li>
+  <li>Here we get three section <code class="language-plaintext highlighter-rouge">git provider</code>, <code class="language-plaintext highlighter-rouge">public git repo</code> and <code class="language-plaintext highlighter-rouge">Existing Image</code>.</li>
+  <li>We will deploy using Image so choose <code class="language-plaintext highlighter-rouge">Existing Image</code>.</li>
+  <li>
+    <p>Add the Image URL eg. <code class="language-plaintext highlighter-rouge">nirajsah17/askpdf:dev</code> and add credential if it’s private repository.</p>
+  </li>
+  <li>Then click on <strong>connect</strong>.</li>
+</ul>
+
+<h2 id="here-is-the-deployed-api">Here is the deployed API</h2>
+
+<p><a href="https://askpdf-dev.onrender.com/docs">swagger docs</a></p>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
