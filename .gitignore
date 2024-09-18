@@ -1,231 +1,57 @@
-## __author__ = 'mangalbhaskar'
-## disallow files/folders in same directory as the .gitignore file
+# Node.js dependencies
+/node_modules
+/npm-debug.log
+/yarn-debug.log
+/yarn-error.log
 
-/*
+# Logs
+logs
+*.log
+logs/*.log
+pids
+*.pid
+*.seed
+*.pid.lock
 
-## allow some files
-!.github
-!Gemfile
-!.dockerignore
-!.gitattributes
-!.nojekyll
-!.gitignore
-!.gitmodules/
-!.githooks/
-!.husky/
-!.flake8
-!*.cjs
-!*.json
-!.eslintignore
-!.prettierignore
-!.prettierrc
-!.npmrc
-!.pypirc
-!.pylintrc
-##
-!*.md
-!*.adoc
-!*.html
-!*.yml
-!*.yaml
-!*.xml
-!*.sh
-!*.txt
-!*.py
-!*.cfg
-!*.conf
-!*.example
-!*.toml
-!*.env
-!*.in
-!*.ini
-!*.js
-!*.ts
-!LICENSE*
-!Dockerfile*
-!package.json
-#
-!apps/
-!docker/
-!**/data
-!demo/
-!docs/
-!docs-*/
-!e2e/
-!licenses/
-!requirements/
-!samples/
-!scripts/
-!external/
-!src/
-!tests/
-!reports/
-!wsgi-bin/
-!skpy
+# Environment variables
+.env
+.env.local
+.env.*.local
 
-## AI weights to be excluded
-**/*.pt
-**/*.pth
-**/*.onnx
-**/*.mlmodel
-**/*.torchscript
-**/*.npy
-**/*.npz
-**/*.pkl
-# **/*.ipynb
-# **/*.js
-**/*.t7
-**/*.weights
-**/*.h5
-**/*.ckpt
-**/*.ckpt.*
-**/*.ckpt-*
-**/*.tflite
-**/*.pb
-**/*.pbtext
-**/*.pb.tflite
-**/checkpoint
-**/*.hdf5
-**/*.data-*
-**/*.index
-**/*-lock.*
-**/*.lock
-**/*.mlir 
-**/*.cvimodel 
-**/*.bmodel 
-**/*.prototxt 
+# Build output
+/dist
+/build
 
-## PDF, Images, audios, videos are excluded
-**/*.pdf
-**/*.bmp
-**/*.png
-**/*.jpg
-**/*.jpeg
-**/*.tif
-**/*.tiff
-**/*.dng
-**/*.gif
-**/*.mp3
-**/*.mov
-**/*.avi
-**/*.mp4
-**/*.mpg
-**/*.mpeg
-**/*.m4v
-**/*.wmv
-**/*.mkv
-**/*.webm
-**/*.flv
+# Dependency directories
+/.pnp
+.pnp.js
 
-## disallow some specific files in the allowed list
-**/*~
-**/*.swp
-**/nohup.*
-**/*.log
-**/*.bk
-**/temp.*
-**/.goutputstream-*
-**/tmp_*
-**/tmp-*
+# Testing
+/coverage
+/jest-coverage
+/.nyc_output
 
-## conventions - these directories not allowed
-**/.cred
-**/.secrets
-**/cache
-**/_site
-**/tmp
-**/rpt
-**/.rpt
-## draw.io temp file
-**/*.dtmp
-# **/config
-**/*-config
-# **/data/*
-**/*-data
-**/logs
-**/virtualenvs
-**/site-packages
-**/venv
-**/mobile
-**/*-mobile
-**/deprecated
-##
-# **/blah/
-# **/blah*
+# IDEs and Editors
+/.vscode/
+/.idea/
+/.DS_Store
 
-**/local
-**/.local
-**/*.local
-**/*.local.*
+# OS generated files
+Thumbs.db
+.DS_Store
 
-**/README.html
-**/node_modules
-**/*.pyc
-**/*__pycache__
-# **/*.py[cod]
-# **/*$py.class
-**/*.ipynb_checkpoints
-**/*.python-version
-**/*.pytest_cache
-**/*.mypy_cache
-**/*.py.*
-**/gradle
-**/captures
-**/screenshot
-blah*
-**/.vscode
-**/.gradle
-**/.cache
-**/-cache
-**/.idea
-**/.externalNativeBuild
-**/*.iml
-**/.DS_Store
-**/.tox
-**/build
-# **/dist
-**/bin
-**/.Trashes
-**/.$
-**/.$*bkp
+# Optional npm cache directory
+.npm
 
+# Optional eslint cache
+.eslintcache
 
-**/Thumbs.db
-**/Desktop.ini
-**/Spotlight-V100
-**/._*
+# Optional REPL history
+.node_repl_history
 
-## Jekyll
-**/.sass-cache/
-**/.jekyll-cache/
-**/.jekyll-metadata
-**/vendor
-**/bundle
-**/.vendor
-**/.bundle
+# Lockfiles
+package-lock.json
+yarn.lock
 
-## Python egg metadata, regenerated from source files by setuptools.
-**/*.egg-info
-**/*.egg
-**/*.whl
-
-## disallow C extensions
-*.so
-
-## override and allow
-!docs/**/*.png
-!docs/**/*.jpg
-!docs/**/*.jpeg
-!docs/**/*.gif
-##
-!data/**/*.mkv
-!data/**/*.mp4
-##
-# !**/*.png
-# !**/*.jpg
-# !**/*.jpeg
-# !**/*.gif
-
-!**/data/**/*.yml
-!**/data/**/*.csv
-!**/data/**/*.json
+# TypeScript
+*.tsbuildinfo

@@ -1,48 +1,79 @@
-# askPDF - Chat with Your PDF
+# Ask-PDF
 
-`askPDF` is an AI-powered tool that helps you easily interact with PDF documents. Whether you need to extract specific information, summarize content, or ask questions related to the PDF, this tool allows you to have a seamless conversation with the document.
+Ask-PDF is a Node.js application that extracts text from PDF files and leverages OpenAI's GPT-4 API to summarize or interact with the content. This is useful for gaining quick insights or summaries from large PDF documents.
 
-## Key Features
+## Features
 
-- **Query the Document**: Ask questions directly related to the PDF content and receive quick responses.
-- **Summarization**: Generate concise summaries of sections or entire documents.
-- **Contextual Responses**: Get responses that understand the context of your query within the document.
-- **Search Within PDF**: Efficiently search for specific terms, phrases, or data in large PDFs.
-- **Interactive Q&A**: Engage in a back-and-forth conversation to dig deeper into the document.
+- **Extract Text from PDFs**: Extract text content from PDF files using `pdf.js-extract`.
+- **Summarize PDF Content**: Interact with OpenAI GPT-4 to summarize or get key points from the extracted text.
+- **Rate Limiting Handling**: Automatically retries API requests when rate limits are hit.
+- **Customizable API Integration**: You can modify the prompt and extend the interaction logic with the OpenAI API.
 
-## How It Works
+## Prerequisites
 
-1. **Upload PDF**: Start by uploading a PDF file.
-2. **Ask Questions**: Type in your questions. The AI will analyze the content of the PDF and provide relevant answers.
-3. **Receive Responses**: Get clear and contextual answers directly related to the PDF.
-4. **Explore Further**: Continue the conversation to explore more details or move to another section of the PDF.
+Before you begin, ensure you have met the following requirements:
 
-## Use Cases
+- **Node.js v14+** installed.
+- **OpenAI API Key**: You need to have an OpenAI API key to use GPT-4.
 
-- **Research and Study**: Quickly extract key points, definitions, or detailed explanations from academic papers or textbooks.
-- **Business and Reports**: Review financial statements, contracts, or policy documents with ease.
-- **Legal Documents**: Analyze clauses, terms, and conditions in legal documents without needing to read the entire file.
-- **User Guides and Manuals**: Get step-by-step instructions or technical explanations from user manuals.
+## Installation
 
-## Benefits
+Follow these steps to get the project up and running:
 
-- **Time-Saving**: No need to scroll through pages of content to find relevant information.
-- **Efficient Analysis**: Quickly identify and extract useful data from complex documents.
-- **Intuitive Interaction**: The conversational interface makes exploring documents more intuitive and less tedious.
-- **Multi-Language Support**: Ask questions in different languages, and the AI will respond accordingly.
+1. **Clone the repository:**
 
-## Future Enhancements
+   ```bash
+   git clone https://github.com/kaushal726/ask-pdf.git
+   cd ask-pdf
+   ```
 
-- **Multi-PDF Interaction**: Cross-reference and interact with multiple PDFs simultaneously.
-- **Annotation and Highlighting**: Mark important sections directly within the chat interface.
-- **Integration with Note-Taking Apps**: Export responses and summaries to popular note-taking applications like Notion, Evernote, or OneNote.
+2. **Install the dependencies:**
 
-## Getting Started
+   Run the following command to install the required packages:
 
-1. Upload your PDF file.
-2. Start asking questions or request summaries.
-3. Save and export responses as needed.
+   ```bash
+   npm install
+   ```
 
----
+3. **Set up environment variables:**
 
-Experience the power of AI-driven document interaction with `askPDF`. Make understanding and navigating PDF content easier than ever before!
+   Create a `.env` file in the root of your project and add your OpenAI API key:
+
+   ```bash
+   OPENAI_API_KEY=your_openai_api_key_here
+   ```
+
+   Replace `your_openai_api_key_here` with your actual OpenAI API key.
+
+## Usage
+
+1. Place your PDF file in the root directory or specify its path in the code.
+2. Run the following command to start the application:
+
+   ```bash
+   bash start.sh
+   ```
+
+3. The program will extract text from the PDF file and send it to OpenAI for summarization or interaction. The response will be printed in the console.
+
+### Example
+
+```bash
+bash start.sh
+```
+
+Output:
+
+```
+OpenAI's Response: The key points of the document are...
+```
+
+## Important Notes
+
+- **API Rate Limiting**: The app automatically retries if the OpenAI API rate limit is exceeded. Adjust the retry logic if needed.
+- **Large PDFs**: If you're working with large PDFs, consider trimming or splitting the content to avoid exceeding OpenAI's token limits.
+- **Customizing Prompts**: You can modify the prompt in `pdfToAi.js` to change the interaction with GPT-4.
+
+## Contributing
+
+Contributions are welcome! If you would like to make changes or improvements, feel free to fork the repository and create a pull request.
