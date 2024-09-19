@@ -36,7 +36,7 @@
 !*.conf
 !*.example
 !*.toml
-!*.env
+.env
 !*.in
 !*.ini
 !*.js
