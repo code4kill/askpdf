@@ -9,7 +9,7 @@ class FileResponse(BaseModel):
     message: str
 
     class Config:
-        orm_mode = False
+        from_attributes = False
         
 class FileMetaData(BaseModel):
     name: str
@@ -18,4 +18,4 @@ class FileMetaData(BaseModel):
     type: str
 
     class Config:
-        orm_mode = False
+        from_attributes = False

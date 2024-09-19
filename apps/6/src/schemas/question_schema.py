@@ -6,7 +6,7 @@ class QuestionRequest(BaseModel):
     id: str
 
     class Config:
-        orm_mode = False
+        from_attributes = False
         
 class QuestionResponse(BaseModel):
     id: str
@@ -15,4 +15,4 @@ class QuestionResponse(BaseModel):
     answer: str
 
     class Config:
-        orm_mode = False
+        from_attributes = False

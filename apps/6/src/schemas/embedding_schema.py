@@ -4,7 +4,7 @@ class EmbeddingRequest(BaseModel):
     id: str
     
     class Config:
-        orm_mode = False
+        from_attributes = False
     
     
 class EmbeddingResponse(BaseModel):
@@ -15,4 +15,4 @@ class EmbeddingResponse(BaseModel):
   embeddings: list
 
   class Config:
-      orm_mode = False
+      from_attributes = False
