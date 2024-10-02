@@ -1,0 +1,6 @@
+{
+  "MAX_TOKEN": 500,
+  "TEMPERATURE": 0.7,
+  "MODEL": "gpt-3.5-turbo",
+  "THRESHOLD": 0.7
+}
