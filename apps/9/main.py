@@ -1,5 +1,3 @@
-# main.py
-
 import os
 import argparse
 from datetime import datetime
@@ -9,7 +7,7 @@ from config import OUTPUT_DIR
 
 def parse_arguments():
   parser = argparse.ArgumentParser(description='Extract metadata from a research paper PDF')
-  parser.add_argument('pdf_path', help='Path to the PDF file')
+  parser.add_argument('--pdf_path', help='Path to the PDF file')
   return parser.parse_args()
 
 def main():
@@ -24,8 +22,9 @@ def main():
   citations = citation_extractor.extract_citations(pdf_path)
   images = images_extractor.extract_images_from_pdf(pdf_path, OUTPUT_DIR)
   tables = table_extractor.extract_tables_from_pdf(pdf_path)
-  images_extractor_2.extract_images_and_graphics_from_pdf(pdf_path, OUTPUT_DIR)
-  # Combine all extracted info
+  # images_extractor_2.extract_images_and_graphics_from_pdf(pdf_path, OUTPUT_DIR)
+  for x in sections:
+    print(x)
   extracted_data = {
     'title': title,
     'authors': authors,

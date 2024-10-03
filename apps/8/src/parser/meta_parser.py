@@ -47,9 +47,6 @@ def extract_references_section(text):
         return text[found_pos:]
     return "References section not found"
 
-# Example usage:
-# references_section = extract_references_section(paper_text)
-# print(references_section)
 
 def read_pdf_text(pdf_path):
   """
@@ -140,3 +137,33 @@ def extract_references(text):
   all_references = type1_references + type2_references + type3_references
 
   return all_references
+
+def extract_images_from_pdf(pdf_path):
+    # Open the PDF file
+  pdf_document = fitz.open(pdf_path)
+    
+    # List to store all images extracted from the PDF
+  extracted_images = []
+
+    # Loop through all the pages in the PDF
+  for page_num in range(len(pdf_document)):
+    page = pdf_document.load_page(page_num)  # Load a page
+    images = page.get_images(full=True)      # Get all images on the page
+    
+    for img in images:
+        # Extract image data
+        xref = img[0]  # xref is the image reference number
+        image_info = pdf_document.extract_image(xref)
+        
+        # Append the image data to the extracted_images list
+        extracted_images.append({
+          "page_num": page_num + 1,         # Page number where the image was found
+          "image_data": image_info["image"],# Raw image data (bytes)
+          "extension": image_info["ext"],   # Image file extension (e.g., 'png', 'jpeg')
+          "width": image_info["width"],     # Image width
+          "height": image_info["height"]    # Image height
+        })
+  
+  # Close the PDF document
+  pdf_document.close()
+  return extracted_images

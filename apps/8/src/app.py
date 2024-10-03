@@ -2,8 +2,13 @@
 Main file  to run the application.
 """
 
+import os
+
+
+UPLOAD_PATH_PDF = os.getenv("OPENAI_API_KEY")
+
 import argparse
-from .parser.meta_parser import extract_pdf_pageno_text, extract_references_section, read_pdf_text, extract_references
+from .parser.meta_parser import extract_pdf_pageno_text, extract_references_section, read_pdf_text, extract_references, extract_images_from_pdf
 from .parser.spacy_parser import extract_named_entity
 # from parser import extract_pdf_pageno_text, extract_references_section, read_pdf_text, extract_references, extract_named_entity
 
@@ -21,6 +26,8 @@ def main(args):
   references_sections = extract_references_section(text)
   references = extract_references(references_sections)
   print("References Section :: " ,references_sections)
+  images = extract_images_from_pdf(from_path)
+  print("Images of images :: ", images)
   print("References :: " ,references)
   print("Named Entity List :: " ,person)
 

@@ -20,8 +20,8 @@ def extract_images_from_pdf(pdf_path, save_folder):
       # Generate a random image name using alphanumeric characters
       random_name = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
       image_path = os.path.join(save_folder, f"{random_name}.{image_format}")
-      with open(image_path, "wb") as f:
-        f.write(image_data)
+      # with open(image_path, "wb") as f:
+      #   f.write(image_data)
 
       images.append({
         "name": random_name,
