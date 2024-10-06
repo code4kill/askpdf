@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Product Requirements Document AskPDF | askpdf</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Product Requirements Document AskPDF" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="askpdf" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Product Requirements Document AskPDF" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Product Requirements Document AskPDF","url":"/prd.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=b7a9de27fd405916b33206b76efed5a728c5bafc">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="/">askpdf</a></h1>
+      
+
+      <h1 id="product-requirements-document-askpdf">Product Requirements Document AskPDF</h1>
+
+<p>AskPDF is an advanced, locally-deployed system designed to revolutionize how researchers interact with and extract insights from technical papers in the field of Artificial Intelligence. The product employs a sophisticated, NoSQL-based, idempotent, stateless, and declarative system design pipeline to process, analyze, and query research papers efficiently.</p>
+
+<h2 id="product-overview">Product Overview</h2>
+
+<h3 id="intelligent-document-processing">Intelligent Document Processing</h3>
+<p>AskPDF ingests PDF research papers, extracting and structuring content including text, figures, tables, and metadata. It utilizes advanced NLP techniques to understand the semantic structure of documents.</p>
+
+<h3 id="multi-stage-processing-pipeline">Multi-Stage Processing Pipeline</h3>
+<p>The system implements a comprehensive, multi-stage processing pipeline to analyze and enrich research paper content:</p>
+
+<ol>
+  <li>Pre-processor Stage</li>
+  <li>Analytical Stage</li>
+  <li>Visualization and Analytical Stage</li>
+  <li>Semantic Stage</li>
+  <li>Reasoning Stage</li>
+</ol>
+
+<h3 id="vector-based-knowledge-representation">Vector-Based Knowledge Representation</h3>
+<p>The system converts extracted information into high-dimensional vector representations, enabling semantic understanding and comparison of research concepts, methodologies, and results across multiple papers.</p>
+
+<h3 id="multimodal-information-retrieval">Multimodal Information Retrieval</h3>
+<p>AskPDF provides a unified search interface that allows users to query across text, figures, and tables, facilitating comprehensive exploration of research content.</p>
+
+<h3 id="cross-paper-analysis">Cross-Paper Analysis</h3>
+<p>The system enables users to easily compare and contrast methodologies, datasets, and results across multiple papers, accelerating the identification of trends and state-of-the-art techniques in AI research.</p>
+
+<h3 id="interactive-querying">Interactive Querying</h3>
+<p>Users can ask natural language questions about the papers, receiving context-specific answers as if conversing with a knowledgeable researcher familiar with all the processed papers.</p>
+
+<h3 id="scalable-local-deployment">Scalable Local Deployment</h3>
+<p>AskPDF is designed to run entirely on local infrastructure, ensuring data privacy and eliminating reliance on cloud-based APIs. Its architecture supports scaling from personal use to larger research group deployments.</p>
+
+<h3 id="extensibility">Extensibility</h3>
+<p>The system’s modular design allows for easy integration of new analysis techniques, embedding models, or search capabilities as AI research evolves.</p>
+
+<h2 id="problem-statement">Problem Statement</h2>
+<p>Learning about core AI and AI engineering requires studying numerous technical research papers to stay up-to-date on different fundamentals and trends. The challenge lies in accelerating understanding from this vast array of technical literature. While generative AI APIs like ChatGPT could potentially assist, their use would be costly and unsustainable for this purpose.</p>
+
+<h2 id="inspiration">Inspiration</h2>
+<p>The product’s approach is inspired by observations of specific patterns in reading and extracting information from research papers at different levels of comprehension. These insights will be used to preprocess PDF files before extracting embeddings. The backend will innovate in storing, processing, and retrieving these embeddings effectively.</p>
+
+<h2 id="motive">Motive</h2>
+<p>AskPDF is focused specifically on technical research papers in core AI, aiming to create a significant impact for researchers in this field.</p>
+
+<h2 id="target-audience">Target Audience</h2>
+<ul>
+  <li>AI researchers</li>
+  <li>Data scientists</li>
+  <li>Machine learning engineers</li>
+  <li>Academic institutions focusing on AI research</li>
+  <li>AI research departments in technology companies</li>
+</ul>
+
+<h2 id="key-features-and-functionalities">Key Features and Functionalities</h2>
+
+<h3 id="stage-1-pre-processor-stage">Stage 1: Pre-processor Stage</h3>
+<ul>
+  <li>Implement multiple pre-processing steps without AI</li>
+  <li>Selectively apply GenAI for advanced pre-processing tasks</li>
+  <li>Generate CSV and JSON data models as output</li>
+</ul>
+
+<h3 id="stage-2-analytical-stage">Stage 2: Analytical Stage</h3>
+<ul>
+  <li>Process CSV and JSON data models</li>
+  <li>Generate statistics and summaries</li>
+</ul>
+
+<h3 id="stage-3-visualization-and-analytical-stage">Stage 3: Visualization and Analytical Stage</h3>
+<ul>
+  <li>Generate graphs, plots, and visual analytics</li>
+</ul>
+
+<h3 id="stage-4-semantic-stage-genai">Stage 4: Semantic Stage (GenAI)</h3>
+<p>Enrich specific sections of the paper:</p>
+<ul>
+  <li>Problem statement</li>
+  <li>Contribution</li>
+  <li>DNN architecture details</li>
+  <li>Experimental settings</li>
+</ul>
+
+<h3 id="stage-5-reasoning-stage-genai">Stage 5: Reasoning Stage (GenAI)</h3>
+<p>Perform advanced analysis:</p>
+<ul>
+  <li>Identify research gaps</li>
+  <li>Suggest future directions</li>
+  <li>Conduct comparative analysis</li>
+  <li>Analyze DNN architecture</li>
+  <li>Fill in conceptual details</li>
+  <li>Perform cross-reference analysis (timeline, author)</li>
+  <li>Conduct bibliographic analysis and network analysis</li>
+  <li>Assess content similarity</li>
+  <li>Compare and contrast DNN architectures</li>
+</ul>
+
+<h3 id="intelligent-document-processing-1">Intelligent Document Processing</h3>
+<ul>
+  <li>Ingest and parse PDF research papers using PyMuPDF or PDFMiner</li>
+  <li>Extract and structure content including text, figures, tables, and metadata</li>
+  <li>Implement automated heuristics and AI/ML-based classification for document structure identification</li>
+  <li>Extract citation keys and map them to references using bibtexparser</li>
+</ul>
+
+<h3 id="natural-language-processing-and-understanding">Natural Language Processing and Understanding</h3>
+<ul>
+  <li>Utilize spaCy or Hugging Face Transformers for advanced NLP tasks</li>
+  <li>Generate semantic embeddings for text content, including titles, abstracts, and full paper content</li>
+  <li>Identify and extract key concepts, methodologies, and results from papers</li>
+</ul>
+
+<h3 id="figure-and-table-extraction">Figure and Table Extraction</h3>
+<ul>
+  <li>Extract figures and tables from research papers</li>
+  <li>Store extracted visual elements with associated metadata (e.g., captions, section location)</li>
+  <li>Generate feature vectors for images and figures using computer vision techniques</li>
+</ul>
+
+<h3 id="vector-based-knowledge-representation-1">Vector-Based Knowledge Representation</h3>
+<ul>
+  <li>Store text embeddings in Weaviate for efficient semantic search</li>
+  <li>Use Milvus for storing and retrieving image and video feature vectors</li>
+  <li>Implement Vespa.ai for unified multimodal vector search across text and visual content</li>
+</ul>
+
+<h3 id="cross-paper-analysis-and-comparison">Cross-Paper Analysis and Comparison</h3>
+<ul>
+  <li>Enable semantic similarity comparisons between papers, techniques, and methodologies</li>
+  <li>Implement embedding-based matching for identifying similar approaches across multiple papers</li>
+  <li>Provide functionality to track the evolution of ideas and methods across papers and time</li>
+</ul>
+
+<h3 id="interactive-querying-and-natural-language-interface">Interactive Querying and Natural Language Interface</h3>
+<ul>
+  <li>Allow users to ask natural language questions about the papers</li>
+  <li>Provide context-specific answers by leveraging the semantic understanding of paper content</li>
+  <li>Enable complex queries that span multiple papers and different types of content (text, figures, tables)</li>
+</ul>
+
+<h3 id="customizable-processing-pipeline">Customizable Processing Pipeline</h3>
+<ul>
+  <li>Implement a modular, idempotent, and stateless pipeline using Prefect or Luigi</li>
+  <li>Allow users to configure and customize the processing steps through YAML or JSON configuration files</li>
+  <li>Support parallel processing of multiple papers to improve efficiency</li>
+</ul>
+
+<h3 id="local-deployment-and-data-privacy">Local Deployment and Data Privacy</h3>
+<ul>
+  <li>Design the system to operate entirely on local infrastructure without relying on cloud-based APIs</li>
+  <li>Implement UnQLite or Couchbase Lite for local, NoSQL-based storage of paper metadata and content</li>
+  <li>Ensure all processing and data storage respects data privacy and intellectual property considerations</li>
+</ul>
+
+<h3 id="scalability-and-performance-optimization">Scalability and Performance Optimization</h3>
+<ul>
+  <li>Design the system to handle a growing number of research papers efficiently</li>
+  <li>Implement data partitioning strategies to manage large datasets</li>
+  <li>Optimize query response times for real-time interaction</li>
+</ul>
+
+<h3 id="version-control-and-reproducibility">Version Control and Reproducibility</h3>
+<ul>
+  <li>Use Git for version-controlling configurations and processing scripts</li>
+  <li>Implement logging and monitoring using Loguru to track system events and ensure reproducibility of results</li>
+</ul>
+
+<h3 id="semantic-search-and-comparison">Semantic Search and Comparison</h3>
+<ul>
+  <li>Generate embeddings for extracted content (approaches, datasets, results) using local models like BERT or SciBERT</li>
+  <li>Enable semantic similarity comparisons between papers, overcoming differences in citation numbering schemes</li>
+</ul>
+
+<h3 id="state-of-the-art-comparison">State-of-the-Art Comparison</h3>
+<ul>
+  <li>Cross-reference techniques from different papers</li>
+  <li>Automatically summarize and compare results across papers</li>
+</ul>
+
+<h2 id="system-architecture">System Architecture</h2>
+<ul>
+  <li>Implement a NoSQL-based, idempotent, stateless, and declarative system design pipeline</li>
+  <li>Use Python as the primary programming language</li>
+  <li>Utilize asyncio for building an event-driven, non-blocking system</li>
+  <li>Implement FastAPI for creating lightweight APIs (if required)</li>
+  <li>Use argparse for a command-line driven workflow that can parse configurations</li>
+</ul>
+
+<h3 id="document-parsing-and-preprocessing">Document Parsing and Preprocessing</h3>
+<ul>
+  <li>Use PyMuPDF (or PDFMiner) for PDF parsing and content extraction</li>
+  <li>Implement bibtexparser for parsing BibTeX files and extracting citation keys</li>
+  <li>Utilize spaCy or Hugging Face Transformers for text processing and NLP tasks</li>
+</ul>
+
+<h3 id="storage-solutions">Storage Solutions</h3>
+<ul>
+  <li>Document Storage: Implement UnQLite (or Couchbase Lite for richer use cases) for NoSQL-based, stateless storage of research paper metadata and content</li>
+  <li>Vector Storage for NLP: Use Weaviate for storing and querying text embeddings from research papers</li>
+  <li>Feature Store for Images and Multimedia: Implement Milvus for storing and retrieving image and video feature vectors</li>
+  <li>Unified Query and Multimodal Search: Utilize Vespa.ai for handling complex queries across text, images, and videos</li>
+</ul>
+
+<h3 id="pipeline-orchestration">Pipeline Orchestration</h3>
+<ul>
+  <li>Implement Prefect or Luigi for orchestrating tasks in a declarative, idempotent manner</li>
+  <li>Design workflows for preprocessing PDFs, storing metadata, and indexing vectors</li>
+</ul>
+
+<h3 id="configuration-management">Configuration Management</h3>
+<ul>
+  <li>Use YAML or JSON for declarative configuration files</li>
+  <li>Define pipeline parameters, storage locations, and metadata structures in configuration files</li>
+</ul>
+
+<h3 id="logging-and-monitoring">Logging and Monitoring</h3>
+<ul>
+  <li>Implement Loguru for structured, asynchronous logging of system events</li>
+  <li>Track key activities in the pipeline, such as document parsing, vector storage, and search requests</li>
+</ul>
+
+<h3 id="version-control">Version Control</h3>
+<ul>
+  <li>Use Git for version-controlling configurations, document-processing scripts, and system pipelines</li>
+</ul>
+
+<h2 id="user-interface-requirements">User Interface Requirements</h2>
+<p>(To be defined based on specific user needs and interaction patterns)</p>
+
+<h2 id="performance-requirements">Performance Requirements</h2>
+
+<h3 id="processing-speed">Processing Speed</h3>
+<ul>
+  <li>Optimize PDF processing and information extraction for efficient local execution</li>
+  <li>Implement parallel processing capabilities to handle multiple PDFs simultaneously</li>
+</ul>
+
+<h3 id="query-response-time">Query Response Time</h3>
+<ul>
+  <li>Ensure quick response times for user queries, aiming for sub-second retrieval of relevant information</li>
+</ul>
+
+<h3 id="scalability">Scalability</h3>
+<ul>
+  <li>Design the system to handle a growing number of research papers without significant performance degradation</li>
+  <li>Start with single-node deployments of Weaviate and Milvus for vector search</li>
+  <li>Implement data partitioning strategies (e.g., by research field) to handle larger datasets as the system scales</li>
+  <li>Ensure all intermediate states (e.g., embeddings, document metadata) are stored in a manner that allows reprocessing without duplication</li>
+</ul>
+
+<h2 id="security-considerations">Security Considerations</h2>
+<p>(To be defined based on specific security requirements)</p>
+
+<h2 id="integration-requirements">Integration Requirements</h2>
+<p>(To be defined based on integration needs with existing systems or workflows)</p>
+
+<h2 id="constraints">Constraints</h2>
+<ul>
+  <li>The system must operate without relying on cloud-based AI APIs to ensure sustainability and cost-effectiveness</li>
+  <li>All processing must be done locally to maintain control over data and reduce dependency on external services</li>
+</ul>
+
+<h2 id="future-roadmap">Future Roadmap</h2>
+<ul>
+  <li>AI/ML-Based Document Structure Classification: Develop and integrate AI models fine-tuned on paper structures for more accurate section classification</li>
+  <li>Enhanced Cross-Referencing: Implement more sophisticated algorithms for identifying similar techniques and approaches across papers</li>
+  <li>User Interface Development: Design and implement a user-friendly interface for interacting with the AskPDF system</li>
+  <li>Distributed Processing: Expand the system to support distributed processing for handling larger volumes of papers</li>
+</ul>
+
+<h2 id="testing-requirements">Testing Requirements</h2>
+
+<h3 id="unit-testing">Unit Testing</h3>
+<ul>
+  <li>Implement comprehensive unit tests for each module in the pipeline</li>
+</ul>
+
+<h3 id="integration-testing">Integration Testing</h3>
+<ul>
+  <li>Conduct thorough integration tests to ensure proper interaction between different components of the system</li>
+</ul>
+
+<h3 id="performance-testing">Performance Testing</h3>
+<ul>
+  <li>Perform benchmarks to assess system performance under various load conditions</li>
+</ul>
+
+<h3 id="accuracy-testing">Accuracy Testing</h3>
+<ul>
+  <li>Develop a test suite to evaluate the accuracy of information extraction, embedding generation, and query responses</li>
+</ul>
+
+<h2 id="deployment-and-maintenance">Deployment and Maintenance</h2>
+
+<h3 id="local-deployment">Local Deployment</h3>
+<ul>
+  <li>Provide detailed instructions for deploying the system in a local environment</li>
+</ul>
+
+<h3 id="dependency-management">Dependency Management</h3>
+<ul>
+  <li>Use a package manager (e.g., poetry or pipenv) to manage Python dependencies</li>
+</ul>
+
+<h3 id="system-updates">System Updates</h3>
+<ul>
+  <li>Implement a mechanism for updating the system components and models without disrupting existing data</li>
+</ul>
+
+<h3 id="backup-and-recovery">Backup and Recovery</h3>
+<ul>
+  <li>Design a backup strategy for stored data and implement recovery procedures</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
