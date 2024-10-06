@@ -62,6 +62,7 @@
 !reports/
 !wsgi-bin/
 !skpy
+!askpdfjs
 
 ## AI weights to be excluded
 **/*.pt
