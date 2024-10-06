@@ -1,11 +1,13 @@
-import fitz
 import re
+
+from .pdfutils import getpdf
+
 
 def extract_citations(pdf_path):
   citations = []
   reference_found = False
 
-  with fitz.open(pdf_path) as pdf:
+  with getpdf(pdf_path) as pdf:
     for page_num in range(len(pdf)):
       page = pdf[page_num]
       text = page.get_text("text")

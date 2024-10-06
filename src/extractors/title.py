@@ -1,4 +1,5 @@
-import fitz
+from .pdfutils import getpdf
+
 
 def is_title_case(text):
   words = text.split()
@@ -7,7 +8,7 @@ def is_title_case(text):
   return False
   
 def extract_title(pdf_path):
-  doc = fitz.open(pdf_path)
+  doc = getpdf(pdf_path)
   first_page = doc.load_page(0)
   blocks = first_page.get_text("dict")["blocks"]
   max_font_size = 0

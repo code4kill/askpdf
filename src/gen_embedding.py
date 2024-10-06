@@ -9,9 +9,9 @@ from datetime import datetime
 import tqdm
 
 from .core.common import split_into_chunk
-from .core.pdfutils import read_pdf
 from .core.openaiutils import generate_embedding
-from .token_quota import estimate_tokens, calculate_remaining_quota
+from .core.token_quota import estimate_tokens, calculate_remaining_quota
+from .extractors.pdfutils import read_pdf
 
 
 def generating_embeddings(text):

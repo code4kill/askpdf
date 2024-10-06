@@ -1,12 +1,13 @@
-import fitz
 import re
+
+from .pdfutils import getpdf
 
 def extract_authors(pdf_path):
   """
   Extracts authors of the paper from the first page.
   Assumes authors are in title case, separated by commas, and may be in bold.
   """
-  doc = fitz.open(pdf_path)
+  doc = getpdf(pdf_path)
 
   # Load the first page
   page = doc.load_page(0)

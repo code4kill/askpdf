@@ -2,7 +2,6 @@ import os
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from token_quota import estimate_tokens
 
 ## pdf
 from PyPDF2 import PdfReader
@@ -14,6 +13,7 @@ import openai
 from gtts import gTTS
 from pydub import AudioSegment
 
+from .core.token_quota import estimate_tokens
 
 summarise_engine_key = "gpt-3.5-turbo"
 openai_api_key = ""
@@ -22,11 +22,11 @@ openai_api_key = ""
 app = FastAPI()
 
 app.add_middleware(
-    CORSMiddleware,
-    allow_origins=['*'],
-    allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
+  CORSMiddleware,
+  allow_origins=['*'],
+  allow_credentials=True,
+  allow_methods=['*'],
+  allow_headers=['*'],
 )
 
 
@@ -35,88 +35,88 @@ openai.api_key = openai_api_key
 
 @app.post("/upload-pdf/")
 async def upload_pdf(file: UploadFile = File(...)):
-    if file.content_type != "application/pdf":
-        raise HTTPException(status_code=400, detail="Invalid file format. Please upload a PDF.")
+  if file.content_type != "application/pdf":
+      raise HTTPException(status_code=400, detail="Invalid file format. Please upload a PDF.")
 
-    # Read the PDF content
-    pdf_reader = PdfReader(file.file)
-    pdf_text = ""
-    for page in pdf_reader.pages:
-        pdf_text += page.extract_text()
+  # Read the PDF content
+  pdf_reader = PdfReader(file.file)
+  pdf_text = ""
+  for page in pdf_reader.pages:
+      pdf_text += page.extract_text()
 
-    # Estimate tokens (assuming 1 token per ~4 characters)
-    # num_tokens = len(pdf_text) // 4
-    num_tokens = estimate_tokens(pdf_text)
+  # Estimate tokens (assuming 1 token per ~4 characters)
+  # num_tokens = len(pdf_text) // 4
+  num_tokens = estimate_tokens(pdf_text)
 
-    # Set a limit for the number of tokens to use with GPT
-    max_tokens = 3000
-    if num_tokens > max_tokens:
-        raise HTTPException(status_code=400, detail="PDF too large for processing.")
+  # Set a limit for the number of tokens to use with GPT
+  max_tokens = 3000
+  if num_tokens > max_tokens:
+      raise HTTPException(status_code=400, detail="PDF too large for processing.")
 
-    return {"text": pdf_text[:500], "token_estimate": num_tokens}  # Return the first 500 characters as a preview
+  return {"text": pdf_text[:500], "token_estimate": num_tokens}  # Return the first 500 characters as a preview
 
 # deprecated by openai
 @app.post("/summarize/")
 async def summarize_pdf(file: UploadFile = File(...)):
-    if file.content_type != "application/pdf":
-        raise HTTPException(status_code=400, detail="Invalid file format. Please upload a PDF.")
+  if file.content_type != "application/pdf":
+      raise HTTPException(status_code=400, detail="Invalid file format. Please upload a PDF.")
 
-    pdf_reader = PdfReader(file.file)
-    pdf_text = ""
-    for page in pdf_reader.pages:
-        pdf_text += page.extract_text()
+  pdf_reader = PdfReader(file.file)
+  pdf_text = ""
+  for page in pdf_reader.pages:
+      pdf_text += page.extract_text()
 
-    # Estimate tokens
-    num_tokens = len(pdf_text) // 4
-    max_tokens = 3000
-    if num_tokens > max_tokens:
-        raise HTTPException(status_code=400, detail="PDF too large for processing.")
+  # Estimate tokens
+  num_tokens = len(pdf_text) // 4
+  max_tokens = 3000
+  if num_tokens > max_tokens:
+      raise HTTPException(status_code=400, detail="PDF too large for processing.")
 
-    # Make the API call to summarize the text
-    response = openai.Completion.create(
-        engine=summarise_engine_key,
-        prompt=f"Summarize the following text:\n\n{pdf_text}",
-        max_tokens=150
-    )
+  # Make the API call to summarize the text
+  response = openai.Completion.create(
+      engine=summarise_engine_key,
+      prompt=f"Summarize the following text:\n\n{pdf_text}",
+      max_tokens=150
+  )
 
-    summary = response.choices[0].text.strip()
-    return {"summary": summary, "token_estimate": num_tokens}
+  summary = response.choices[0].text.strip()
+  return {"summary": summary, "token_estimate": num_tokens}
 
 
 @app.post("/summarize-and-convert/")
 async def summarize_and_convert_pdf(file: UploadFile = File(...)):
-    if file.content_type != "application/pdf":
-        raise HTTPException(status_code=400, detail="Invalid file format. Please upload a PDF.")
+  if file.content_type != "application/pdf":
+      raise HTTPException(status_code=400, detail="Invalid file format. Please upload a PDF.")
 
-    pdf_reader = PdfReader(file.file)
-    pdf_text = ""
-    for page in pdf_reader.pages:
-        pdf_text += page.extract_text()
+  pdf_reader = PdfReader(file.file)
+  pdf_text = ""
+  for page in pdf_reader.pages:
+      pdf_text += page.extract_text()
 
-    num_tokens = len(pdf_text) // 4
-    max_tokens = 3000
-    if num_tokens > max_tokens:
-        raise HTTPException(status_code=400, detail="PDF too large for processing.")
+  num_tokens = len(pdf_text) // 4
+  max_tokens = 3000
+  if num_tokens > max_tokens:
+      raise HTTPException(status_code=400, detail="PDF too large for processing.")
 
-    response = openai.Completion.create(
-        engine=summarise_engine_key,
-        prompt=f"Summarize the following text:\n\n{pdf_text}",
-        max_tokens=150
-    )
+  response = openai.Completion.create(
+      engine=summarise_engine_key,
+      prompt=f"Summarize the following text:\n\n{pdf_text}",
+      max_tokens=150
+  )
 
-    summary = response.choices[0].text.strip()
+  summary = response.choices[0].text.strip()
 
-    # Convert the summary to speech
-    tts = gTTS(summary)
-    tts.save("summary.mp3")
+  # Convert the summary to speech
+  tts = gTTS(summary)
+  tts.save("summary.mp3")
 
-    # Optionally, convert to a different format if needed
-    # sound = AudioSegment.from_mp3("summary.mp3")
-    # sound.export("summary.wav", format="wav")
+  # Optionally, convert to a different format if needed
+  # sound = AudioSegment.from_mp3("summary.mp3")
+  # sound.export("summary.wav", format="wav")
 
-    return {"summary": summary, "mp3_file": "summary.mp3", "token_estimate": num_tokens}
+  return {"summary": summary, "mp3_file": "summary.mp3", "token_estimate": num_tokens}
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+  import uvicorn
+  uvicorn.run(app, host="0.0.0.0", port=8000)
 

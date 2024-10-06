@@ -2,8 +2,6 @@ __author__ = 'nirajkumar'
 
 import os
 
-OUTPUT_DIR = os.getenv('OUTPUT_DIR', '/tmp')
-
 cfg = {
   # Retrieval Settings
   "retrieval": {

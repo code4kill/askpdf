@@ -29,7 +29,6 @@ def read_pdf_from_file(file):
 
   return pdf_text
 
-
 def getpdf(file_path: str):
   import fitz  # PyMuPDF
   """get pdf object using pymupdf library."""

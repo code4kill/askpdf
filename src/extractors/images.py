@@ -1,10 +1,11 @@
-import fitz
 import os
 import random
 import string
 
+from .pdfutils import getpdf
+
 def extract_images_from_pdf(pdf_path, save_folder):
-  doc = fitz.open(pdf_path)
+  doc = getpdf(pdf_path)
   images = []
 
   for page_number, page in enumerate(doc):

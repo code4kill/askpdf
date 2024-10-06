@@ -1,5 +1,6 @@
 from collections import Counter
-import fitz  # PyMuPDF
+
+from .pdfutils import getpdf
 
 def extract_sections_with_toc(pdf_path):
   """
@@ -7,7 +8,7 @@ def extract_sections_with_toc(pdf_path):
   Fallback to heuristic-based section detection if TOC is unavailable.
   Content for each section is also extracted.
   """
-  doc = fitz.open(pdf_path)
+  doc = getpdf(pdf_path)
   toc = doc.get_toc()
 
   sections = []

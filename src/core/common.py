@@ -18,7 +18,3 @@ def split_into_chunk(text:str, chunk_size:int=512):
       chunks.append(chunk)
 
   return chunks
-
-def write_to_file(file_path:str, content):
-  with open(file_path, "w+") as file:
-    file.write(content)

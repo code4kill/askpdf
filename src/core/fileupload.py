@@ -1,9 +1,12 @@
 import os
-from datetime import datetime
 import json
+
+from datetime import datetime
+
 from fastapi import File, UploadFile
-from src.core.pdfutils import read_pdf_from_file
-from src.core.common import write_to_file
+
+from ..core.extractors import read_pdf_from_file
+from ..core.common import write_to_file
 
 def upload_file(file):
     print(file)

@@ -1,9 +1,10 @@
-import fitz  # PyMuPDF
 import os
+
+from .pdfutils import getpdf
 
 def extract_images_and_graphics_from_pdf(pdf_path, output_dir):
     # Open the PDF
-    doc = fitz.open(pdf_path)
+    doc = getpdf(pdf_path)
     
     # Create output directory if it doesn't exist
     if not os.path.exists(output_dir):

@@ -1,5 +1,6 @@
-import fitz  # PyMuPDF
 import re
+
+from .pdfutils import getpdf
 
 def extract_tables(page):
     # Get text blocks with their coordinates from the page
@@ -52,7 +53,7 @@ def group_table_by_position(table_data):
 
 def extract_tables_from_pdf(pdf_path):
     # Open the PDF
-    doc = fitz.open(pdf_path)
+    doc = getpdf(pdf_path)
     
     # List to hold all extracted tables
     all_tables = []

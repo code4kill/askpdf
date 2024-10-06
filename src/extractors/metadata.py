@@ -1,7 +1,7 @@
-import fitz
+from .pdfutils import getpdf
 
 def extract_metadata(pdf_path):
-  with fitz.open(pdf_path) as pdf:
+  with getpdf(pdf_path) as pdf:
     metadata = pdf.metadata
   return {
     'title': metadata.get('title'),
