@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Ask-PDF | askpdf</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Ask-PDF" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="askpdf" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Ask-PDF" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Ask-PDF","url":"/askpdfjs.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=b314a155596a12a059215d178202503a4f369ea1">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="/">askpdf</a></h1>
+      
+
+      <h1 id="ask-pdf">Ask-PDF</h1>
+
+<p>Ask-PDF is a Node.js application that extracts text from PDF files and leverages OpenAI’s GPT-4 API to summarize or interact with the content. This is useful for gaining quick insights or summaries from large PDF documents.</p>
+
+<h2 id="features">Features</h2>
+
+<ul>
+  <li><strong>Extract Text from PDFs</strong>: Extract text content from PDF files using <code class="language-plaintext highlighter-rouge">pdf.js-extract</code>.</li>
+  <li><strong>Summarize PDF Content</strong>: Interact with OpenAI GPT-4 to summarize or get key points from the extracted text.</li>
+  <li><strong>Rate Limiting Handling</strong>: Automatically retries API requests when rate limits are hit.</li>
+  <li><strong>Customizable API Integration</strong>: You can modify the prompt and extend the interaction logic with the OpenAI API.</li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>Before you begin, ensure you have met the following requirements:</p>
+
+<ul>
+  <li><strong>Node.js v14+</strong> installed.</li>
+  <li><strong>OpenAI API Key</strong>: You need to have an OpenAI API key to use GPT-4.</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Follow these steps to get the project up and running:</p>
+
+<ol>
+  <li>
+    <p><strong>Clone the repository:</strong></p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/kaushal726/ask-pdf.git
+<span class="nb">cd </span>ask-pdf
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Install the dependencies:</strong></p>
+
+    <p>Run the following command to install the required packages:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Set up environment variables:</strong></p>
+
+    <p>Create a <code class="language-plaintext highlighter-rouge">.env</code> file in the root of your project and add your OpenAI API key:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>your_openai_api_key_here
+</code></pre></div>    </div>
+
+    <p>Replace <code class="language-plaintext highlighter-rouge">your_openai_api_key_here</code> with your actual OpenAI API key.</p>
+  </li>
+</ol>
+
+<h2 id="usage">Usage</h2>
+
+<ol>
+  <li>Place your PDF file in the root directory or specify its path in the code.</li>
+  <li>
+    <p>Run the following command to start the application:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash start.sh
+</code></pre></div>    </div>
+  </li>
+  <li>The program will extract text from the PDF file and send it to OpenAI for summarization or interaction. The response will be printed in the console.</li>
+</ol>
+
+<h3 id="example">Example</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash start.sh
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OpenAI's Response: The key points of the document are...
+</code></pre></div></div>
+
+<h2 id="important-notes">Important Notes</h2>
+
+<ul>
+  <li><strong>API Rate Limiting</strong>: The app automatically retries if the OpenAI API rate limit is exceeded. Adjust the retry logic if needed.</li>
+  <li><strong>Large PDFs</strong>: If you’re working with large PDFs, consider trimming or splitting the content to avoid exceeding OpenAI’s token limits.</li>
+  <li><strong>Customizing Prompts</strong>: You can modify the prompt in <code class="language-plaintext highlighter-rouge">pdfToAi.js</code> to change the interaction with GPT-4.</li>
+</ul>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Contributions are welcome! If you would like to make changes or improvements, feel free to fork the repository and create a pull request.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
