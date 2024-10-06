@@ -5,3 +5,5 @@ openai
 gtts
 pydub
 tiktoken
+pymupdf
+pyyaml

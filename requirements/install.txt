@@ -1,0 +1,6 @@
+python-dotenv
+tqdm
+openai>=1.43.0
+numpy>=1.24.4
+PyPDF2
+click
